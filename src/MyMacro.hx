@@ -30,7 +30,5 @@ class MyMacro {
 		}
 		// Generates a block expression from the given expression array
 		return macro $b{ exprs };
-		
-		return macro null;
 	}
 }
