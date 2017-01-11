@@ -1,9 +1,5 @@
 package;
 
-/**
- * ...
- * @author Urs Stutz
- */
 class Test {
 	
 	public var name:String;
