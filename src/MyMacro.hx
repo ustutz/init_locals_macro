@@ -14,14 +14,14 @@ class MyMacro {
 		var locals = Context.getLocalVars();
 		var fields = Context.getLocalClass().get().fields.get();
 		
-		var assignExpressions = new Array<Expr>();
+		var exprs:Array<Expr> = [];
 		for ( local in locals.keys()) {
 			
 			var isFound = false;
 			
 			for ( field in fields ) {
 				if ( field.name == local ) {
-					assignExpressions.push( macro this.$local = $i{ local });
+					exprs.push( macro this.$local = $i{ local });
 					trace( "created this." + field.name + " = " + local );
 					isFound = true;
 					break;
@@ -33,7 +33,7 @@ class MyMacro {
 			}
 		}
 		// Generates a block expression from the given expression array
-		return macro $b{ assignExpressions };
+		return macro $b{ exprs };
 		
 		return macro null;
 	}
